@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
+import { CartState } from '../Context/favouriteContext'
 
 const Spells = () => {
     const [spellData, setSpelldata] = useState([])
+    const { cart, setCart } = CartState()
 
     useEffect(() => {
         fetchData()
@@ -24,11 +26,36 @@ const Spells = () => {
             {spellData.map((spell) => {
                 return (
                     <Card key={spell.index}>
-                        <Link to={'/spell/' + spell.index}>
-                            <p>{spell.name}</p>
-
-                            <Gradiant />
-                        </Link>
+                        <p>
+                            <Link to={'/spell/' + spell.index}>
+                                {' '}
+                                {spell.name}
+                            </Link>
+                            <span>
+                                {cart.includes(spell) ? (
+                                    <Button
+                                        onClick={() =>
+                                            setCart(
+                                                cart.filter(
+                                                    (c) =>
+                                                        c.index !== spell.index
+                                                )
+                                            )
+                                        }
+                                    >
+                                        Remove from Cart
+                                    </Button>
+                                ) : (
+                                    <Button
+                                        onClick={() =>
+                                            setCart([...cart, spell])
+                                        }
+                                    >
+                                        Add to Cart
+                                    </Button>
+                                )}
+                            </span>
+                        </p>
                     </Card>
                 )
             })}
@@ -39,25 +66,27 @@ const Spells = () => {
 const Wrapper = styled.div`
     margin: 4rem 0rem;
 `
+const Button = styled.button`
+    margin-left: 2rem;
+    border: 2px solid black;
+    color: #313131;
+    background-color: white;
+    padding: 1rem 2rem;
+    font-weight: 700;
+    border-radius: 1rem;
+    cursor: pointer;
+`
 
 const Card = styled.div`
-    min-height: 20rem;
+    min-height: 10rem;
     border-radius: 2rem;
     overflow: hidden;
     position: relative;
-
-    img {
-        border-radius: 2rem;
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        object-fit: cover;
-        /* height: auto; */
-    }
-
+    border: 1px solid;
+    margin-bottom: 0.3rem;
     p {
         z-index: 10;
-        color: white;
+        color: #150606;
         /* display: flex;
         justify-content: center;
         align-items: center; */
@@ -68,6 +97,10 @@ const Card = styled.div`
         left: 50%;
         bottom: 10%;
         transform: translate(-50%, 0);
+    }
+    a {
+        color: black;
+        text-decoration: none;
     }
 `
 

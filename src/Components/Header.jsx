@@ -1,7 +1,9 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { CartState } from '../Context/favouriteContext'
 
 const Header = () => {
+    const { cart } = CartState()
     return (
         <div>
             <Nav>
@@ -9,7 +11,7 @@ const Header = () => {
                     <Link to='/'>Home</Link>
                 </li>
                 <li>
-                    <Link to='/favourite'>Favourite ({0})</Link>
+                    <Link to='/favourite'>Favourite ({cart.length})</Link>
                 </li>
             </Nav>
         </div>
