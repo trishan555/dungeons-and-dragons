@@ -23,9 +23,10 @@ const Spells = () => {
 
             {spellData.map((spell) => {
                 return (
-                    <Card>
+                    <Card key={spell.index}>
                         <Link to={'/spell/' + spell.index}>
                             <p>{spell.name}</p>
+
                             <Gradiant />
                         </Link>
                     </Card>
