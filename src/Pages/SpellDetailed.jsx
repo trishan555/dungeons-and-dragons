@@ -9,6 +9,7 @@ const SpellDetailed = () => {
     useEffect(() => {
         fetchDetails()
     }, [params.name])
+
     const fetchDetails = async () => {
         const response = await fetch(
             `https://www.dnd5eapi.co/api/spells/${params.name}`

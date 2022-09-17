@@ -1,4 +1,4 @@
-import Search from './Search'
+import Search from '../Components/Search'
 
 const Spells = () => {
     return (

@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 import { CartState } from '../Context/Context'
-import SingleSpell from './SingleSpell'
+import SingleSpell from '../Components/SingleSpell'
 
 const Favourite = () => {
     const { cart } = CartState()
-
     //console.log(cart)
 
     return (
         <div>
-            <h3>Favourites</h3>
+            <h3>My Favourites</h3>
             <Wrapper>
                 {cart && cart.length > 0 ? (
                     cart.map((item) => (

@@ -1,7 +1,7 @@
-import Spells from './Components/Spells'
-import SpellDetailed from './Components/SpellDetailed'
+import Spells from './Pages/Spells'
+import SpellDetailed from './Pages/SpellDetailed'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Favourite from './Components/Favourite'
+import Favourite from './Pages/Favourite'
 import Header from './Components/Header'
 
 function App() {
