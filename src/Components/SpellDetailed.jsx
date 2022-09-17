@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom'
 
 const SpellDetailed = () => {
     const [details, setDetails] = useState({})
-    const [activeTab, setActiveTab] = useState('instructions')
     const params = useParams()
 
     useEffect(() => {
@@ -16,7 +15,7 @@ const SpellDetailed = () => {
         )
         const data = await response.json()
         setDetails(data)
-        console.log(data)
+        //console.log(data)
     }
 
     return (
@@ -24,9 +23,40 @@ const SpellDetailed = () => {
             <h3>{details.name}</h3>
             <DetailWrapper>
                 <Info>
-                    <p>{details.desc}</p>
-                    {/* <p>{details.subclasses.name}</p> */}
-                    {/* <p>{details.school.name}</p> */}
+                    <div>
+                        <h4>Description</h4>
+                        <p>{details.desc}</p>
+                    </div>
+                    <div>
+                        <h4>Higher level</h4>
+                        <p>{details.higher_level}</p>
+                    </div>
+                    <div>
+                        <h4>Material</h4>
+                        <p>{details.material}</p>
+                    </div>
+                    <Table>
+                        <div>
+                            <h4>Ritual</h4>
+                            {details.ritual === false ? (
+                                <p>False</p>
+                            ) : (
+                                <p>True</p>
+                            )}
+                        </div>
+                        <div>
+                            <h4>Duration</h4>
+                            <p>{details.duration}</p>
+                        </div>
+                        <div>
+                            <h4>Level</h4>
+                            <p>{details.level}</p>
+                        </div>
+                        <div>
+                            <h4>Casting time</h4>
+                            <p>{details.casting_time}</p>
+                        </div>
+                    </Table>
                 </Info>
             </DetailWrapper>
         </div>
@@ -44,19 +74,15 @@ const DetailWrapper = styled.div`
         color: white;
     }
 `
-const Button = styled.button`
-    margin-right: 2rem;
-    border: 2px solid black;
-    color: #313131;
-    background-color: white;
-    padding: 1rem 2rem;
-    font-weight: 700;
-    border-radius: 1rem;
-`
 
-const Image = styled.img`
-    max-width: 100%;
-    border-radius: 2rem;
+const Table = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+        flex-direction: column;
+        text-align-last: center;
+    }
 `
 
 const Info = styled.div`
@@ -77,6 +103,10 @@ const Info = styled.div`
     a {
         color: black;
         text-decoration: none;
+    }
+
+    @media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+        margin: 0rem 1rem;
     }
 `
 

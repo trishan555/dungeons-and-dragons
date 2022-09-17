@@ -20,3 +20,21 @@ h3 {
     line-height: 2.5rem;
     margin: 2rem 0rem;
 }
+
+@media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+    body {
+        margin: 0;
+        background-color: #fdfdfd;
+    }
+    h3 {
+        font-size: 1.2rem;
+        color: #434340;
+        margin: 1rem 1rem;
+    }
+}
+@media only screen and (min-device-width: 426px) and (max-device-width: 768px) {
+    body {
+        margin: 0 10%;
+        background-color: #fdfdfd;
+    }
+}

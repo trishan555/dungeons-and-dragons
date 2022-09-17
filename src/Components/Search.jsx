@@ -59,6 +59,20 @@ const StyledForm = styled.form`
         transform: translate(100%, -50%);
         color: white;
     }
+
+    @media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+        margin: 0rem 1rem;
+        input {
+            padding: 0.8rem 3rem;
+        }
+    }
+
+    @media only screen and (min-device-width: 426px) and (max-device-width: 768px) {
+        margin: 0rem 10%;
+        input {
+            padding: 0.8rem 3rem;
+        }
+    }
 `
 const Wrapper = styled.div`
     margin: 3rem 0rem;

@@ -45,6 +45,10 @@ const Nav = styled.ul`
         font-size: 3rem;
         color: black;
     }
+
+    @media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+        margin: 0rem 1rem;
+    }
 `
 const ListNew = styled.li`
     svg {

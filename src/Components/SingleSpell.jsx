@@ -37,7 +37,6 @@ const Button = styled.button`
     border: 1px solid black;
     color: #313131;
     background-color: #fdfdfd;
-    padding: 1rem 2rem;
     font-weight: 500;
     padding: 10px 10px;
     border-radius: 100%;
@@ -56,9 +55,22 @@ const Button = styled.button`
     &:active {
         background-color: crimson;
     }
+
+    @media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+        svg {
+            font-size: 1rem;
+        }
+    }
+    @media only screen and (min-device-width: 426px) and (max-device-width: 768px) {
+        svg {
+            font-size: 1rem;
+        }
+    }
 `
 
 const Card = styled.div`
+    box-shadow: 0px 0px 0px 0px rgba(235, 202, 202, 0.973),
+        3px 2px 8px 0px rgba(241, 225, 225, 0.966);
     min-height: 5rem;
     display: flex;
     justify-content: space-between;
@@ -74,6 +86,16 @@ const Card = styled.div`
     a {
         color: black;
         text-decoration: none;
+    }
+
+    @media only screen and (min-device-width: 300px) and (max-device-width: 425px) {
+        margin: 0rem 1rem;
+        min-height: 4rem;
+        border-radius: 1.5rem;
+    }
+    @media only screen and (min-device-width: 426px) and (max-device-width: 768px) {
+        min-height: 4rem;
+        border-radius: 1.5rem;
     }
 `
 
