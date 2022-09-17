@@ -4,6 +4,7 @@ import SingleSpell from './SingleSpell'
 
 const Favourite = () => {
     const { cart } = CartState()
+
     //console.log(cart)
 
     return (

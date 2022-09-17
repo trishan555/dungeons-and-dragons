@@ -6,6 +6,7 @@ import { GiDrakkarDragon } from 'react-icons/gi'
 
 const Header = () => {
     const { cart } = CartState()
+
     return (
         <Nav>
             <li>

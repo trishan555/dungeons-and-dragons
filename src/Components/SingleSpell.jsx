@@ -6,6 +6,7 @@ import { AiOutlineHeart } from 'react-icons/ai'
 
 const SingleSpell = ({ spell }) => {
     const { cart, setCart } = CartState()
+
     return (
         <div>
             <Card>

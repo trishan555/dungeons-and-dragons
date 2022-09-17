@@ -6,7 +6,7 @@ import SingleSpell from './SingleSpell'
 
 const Search = () => {
     const [searchTerms, setSearchTerms] = useState('')
-    const { spellData, setSpelldata } = CartState()
+    const { spellData } = CartState()
 
     return (
         <>
@@ -44,7 +44,7 @@ const StyledForm = styled.form`
     input {
         border: none;
         border-radius: 1rem;
-        background: linear-gradient(10deg, #615f5f, #342f2f);
+        background: linear-gradient(10deg, #403d3d, #615f5f);
         width: 100%;
         outline: none;
         color: white;
