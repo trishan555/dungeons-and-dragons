@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { CartState } from '../Context/Context'
+import { AiFillHeart } from 'react-icons/ai'
+import { AiOutlineHeart } from 'react-icons/ai'
 
 const SingleSpell = ({ spell }) => {
     const { cart, setCart } = CartState()
@@ -17,11 +19,11 @@ const SingleSpell = ({ spell }) => {
                             setCart(cart.filter((c) => c.index !== spell.index))
                         }
                     >
-                        Remove from Cart
+                        <AiFillHeart />
                     </Button>
                 ) : (
                     <Button onClick={() => setCart([...cart, spell])}>
-                        Add to Cart
+                        <AiOutlineHeart />{' '}
                     </Button>
                 )}
             </Card>
@@ -36,11 +38,22 @@ const Button = styled.button`
     background-color: white;
     padding: 1rem 2rem;
     font-weight: 500;
-    border-radius: 1rem;
+    padding: 10px 10px;
+    border-radius: 100%;
+
     cursor: pointer;
     &:hover {
         background-color: #171313;
         color: white;
+    }
+    svg {
+        font-size: 1.3rem;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+    }
+    &:active {
+        background-color: crimson;
     }
 `
 
