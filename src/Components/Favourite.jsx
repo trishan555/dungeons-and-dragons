@@ -1,30 +1,39 @@
-import { CartState } from '../Context/favouriteContext'
+import styled from 'styled-components'
+import { CartState } from '../Context/Context'
+import SingleSpell from './SingleSpell'
 
 const Favourite = () => {
-    const { cart, setCart } = CartState()
-    console.log(cart)
-
-    const deleteHandler = (index) => {
-        const newData = cart.filter((restData) => restData.index !== index)
-        setCart(newData)
-    }
+    const { cart } = CartState()
+    //console.log(cart)
 
     return (
         <div>
-            {cart && cart.length > 0 ? (
-                cart.map((item) => (
-                    <div key={item.index}>
-                        {item.name}
-                        <button onClick={() => deleteHandler(item.index)}>
-                            Delete
-                        </button>
-                    </div>
-                ))
-            ) : (
-                <p>No Data</p>
-            )}
+            <h3>Favourites</h3>
+            <Wrapper>
+                {cart && cart.length > 0 ? (
+                    cart.map((item) => (
+                        <SingleSpell spell={item} key={item.index} />
+                    ))
+                ) : (
+                    <Ptag>No Data</Ptag>
+                )}
+            </Wrapper>
         </div>
     )
 }
+
+const Wrapper = styled.div`
+    margin: 3rem 0rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+    grid-gap: 2rem;
+`
+
+const Ptag = styled.p`
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+`
 
 export default Favourite

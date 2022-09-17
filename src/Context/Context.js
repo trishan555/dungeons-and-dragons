@@ -5,7 +5,13 @@ const Cart = createContext()
 const Context = ({ children }) => {
     const [cart, setCart] = useState([])
 
-    return <Cart.Provider value={{ cart, setCart }}>{children}</Cart.Provider>
+    const [spellData, setSpelldata] = useState([])
+
+    return (
+        <Cart.Provider value={{ cart, setCart, spellData, setSpelldata }}>
+            {children}
+        </Cart.Provider>
+    )
 }
 
 export const CartState = () => {
