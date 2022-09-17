@@ -35,7 +35,7 @@ const Button = styled.button`
     margin-right: 1rem;
     border: 1px solid black;
     color: #313131;
-    background-color: white;
+    background-color: #fdfdfd;
     padding: 1rem 2rem;
     font-weight: 500;
     padding: 10px 10px;
@@ -61,7 +61,7 @@ const Card = styled.div`
     min-height: 5rem;
     display: flex;
     justify-content: space-between;
-
+    background-color: white;
     align-items: center;
     border-radius: 2rem;
     border: 1px solid;

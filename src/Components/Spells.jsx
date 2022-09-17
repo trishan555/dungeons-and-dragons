@@ -3,10 +3,11 @@ import styled from 'styled-components'
 import { Link } from 'react-router-dom'
 import { CartState } from '../Context/Context'
 import SingleSpell from './SingleSpell'
+import Search from './Search'
 
 const Spells = () => {
     // const [spellData, setSpelldata] = useState([])
-    const { cart, setCart, spellData, setSpelldata } = CartState()
+    const { spellData, setSpelldata } = CartState()
 
     useEffect(() => {
         const fetchData = async () => {
@@ -23,21 +24,10 @@ const Spells = () => {
         <div>
             <h3>Popular Spells</h3>
 
-            <Wrapper>
-                {spellData.map((spell) => (
-                    <SingleSpell spell={spell} key={spell.index} />
-                ))}
-            </Wrapper>
+            <Search />
         </div>
     )
 }
-
-const Wrapper = styled.div`
-    margin: 3rem 0rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-    grid-gap: 2rem;
-`
 
 const Gradiant = styled.div`
     z-index: 3;
